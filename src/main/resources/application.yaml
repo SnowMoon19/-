@@ -1,0 +1,33 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true   #开启页面表单的Rest功能
+    pathmatch:
+      matching-strategy: ant_path_matcher # swagger配置相关的
+  servlet:
+    multipart:
+      max-request-size: 100MB # 上传文件总的最大值
+      max-file-size: 100MB # 单个文件的最大值
+
+  datasource: # 连接mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fxj?serverTimezone=GMT%2B8&characterEncoding=utf-8&userSSL=false
+    username: root
+    password: ffxxjj199919
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.myweb.fxj.pojo
+  
+
+server:
+  port: 8003
+#  ssl:
+#    enabled: true
+#    key-store: classpath:ilovewzy.xyz.jks
+#    key-store-type: JKS
+#    key-store-password: ffxxjj199919
+
+

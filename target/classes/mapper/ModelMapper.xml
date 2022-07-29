@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.fxj.mapper.info.ModelMapper">
+    <select id="getModel" resultType="Model">
+        select m.*
+        from  info_model m, info_baseinfo b
+        where b.id = #{id} and m.model_id = b.model_id
+    </select>
+</mapper>
