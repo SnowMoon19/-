@@ -1,0 +1,149 @@
+#app {
+  // 主体区域
+  .main-container {
+    min-height: 100%;
+    transition: margin-left .28s;
+    margin-left: 180px;
+    position: relative;
+    background: -webkit-linear-gradient(90deg, rgba(160,230,227,0.4), rgba(244,206,221,0.4)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, rgba(160,230,227,0.4), rgba(244,206,221,0.4)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, rgba(160,230,227,0.4), rgba(244,206,221,0.4)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, rgba(160,230,227,0.4), rgba(244,206,221,0.4)); /* 标准的语法（必须放在最后） */
+    //background: #f4cedd; // 主题区域的背景色
+    //opacity: 80%;
+  }
+  // 侧边栏
+  .sidebar-container {
+    transition: width 0.28s;
+    width: 180px !important;
+    height: 100%;
+    position: fixed;
+    font-size: 0px;
+    top: 0;
+    margin-right: 20px;
+    //bottom: 60px;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+    //reset element-ui css
+    .horizontal-collapse-transition {
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    }
+    .el-scrollbar__bar.is-vertical{
+      right: 0px;
+    }
+    .scrollbar-wrapper {
+      overflow-x: hidden!important;
+      .el-scrollbar__view {
+        height: 100%;
+      }
+    }
+    .is-horizontal {
+      display: none;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+    }
+    .svg-icon {
+      margin-right: 16px;
+    }
+    .el-menu {
+      height: 100%;
+      width: 100% !important;
+      background: #52aeff; // 侧边栏菜单背景色
+      //border-radius: 80px 0 0 80px;
+      //font-size: 20px;
+    }
+    .is-active > .el-submenu__title{
+      color: white!important; // 当前点击子模块后的父模块字体颜色
+    }
+  }
+  .hideSidebar {
+    .sidebar-container {
+      width: 36px !important;
+    }
+    .main-container {
+      margin-left: 36px;
+    }
+    .submenu-title-noDropdown {
+      padding-left: 10px !important;
+      position: relative;
+      .el-tooltip {
+        padding: 0 10px !important;
+      }
+    }
+    .el-submenu {
+      overflow: hidden;
+      &>.el-submenu__title {
+        padding-left: 10px !important;
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+    .el-menu--collapse {
+      .el-submenu {
+        &>.el-submenu__title {
+          &>span {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
+  .sidebar-container .el-submenu .el-menu-item {
+    min-width: 180px !important;
+    background-color: rgba(230,187,217,0.95) !important; // 子模块的背景色
+    box-shadow: 0 0 5px rgba(0, 0, 0, 5);
+    border-radius: 40px 200px 50px 40px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    //opacity: 80%;
+    &:hover {
+      background-color: #ecf5ff !important; // 子模块的hover背景色
+    }
+  }
+  .el-menu--collapse .el-menu .el-submenu {
+    min-width: 180px !important;
+  }
+
+  //适配移动端
+  .mobile {
+    .main-container {
+      margin-left: 0px;
+    }
+    .sidebar-container {
+      transition: transform .28s;
+      width: 180px !important;
+    }
+    &.hideSidebar {
+      .sidebar-container {
+        transition-duration: 0.3s;
+        transform: translate3d(-180px, 0, 0);
+      }
+    }
+  }
+  .withoutAnimation {
+    .main-container,
+    .sidebar-container {
+      transition: none;
+    }
+  }
+}
+
+.el-menu--vertical{
+  & >.el-menu{
+    .svg-icon{
+      margin-right: 16px;
+    }
+  }
+}
